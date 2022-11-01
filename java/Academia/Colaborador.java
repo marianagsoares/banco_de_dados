@@ -32,4 +32,116 @@ public class Colaborador {
         this.anoAdmissao = anoAdmissao;
         this.endereco = endereco;
     }
+
+    public int getIdColaborador() {
+        return idColaborador;
+    }
+
+    public void setIdColaborador(int idColaborador) {
+        this.idColaborador = idColaborador;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getUltimoNome() {
+        return ultimoNome;
+    }
+
+    public void setUltimoNome(String ultimoNome) {
+        this.ultimoNome = ultimoNome;
+    }
+
+    public String getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(String dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public int getIdSetor() {
+        return idSetor;
+    }
+
+    public void setIdSetor(int idSetor) {
+        this.idSetor = idSetor;
+    }
+
+    public int getIdUnidade() {
+        return idUnidade;
+    }
+
+    public void setIdUnidade(int idUnidade) {
+        this.idUnidade = idUnidade;
+    }
+
+    public String getFormacao() {
+        return formacao;
+    }
+
+    public void setFormacao(String formacao) {
+        this.formacao = formacao;
+    }
+
+    public String getAnoAdmissao() {
+        return anoAdmissao;
+    }
+
+    public void setAnoAdmissao(String anoAdmissao) {
+        this.anoAdmissao = anoAdmissao;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 }
