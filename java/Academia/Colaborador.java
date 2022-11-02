@@ -16,6 +16,7 @@ public class Colaborador {
     private String anoAdmissao;
     private Endereco endereco;
 
+
     public Colaborador(int idColaborador, String nome, String sobrenome, String ultimoNome, String dataNasc, String sexo, String email, String cpf, double salario, int idSetor, int idUnidade, String formacao, String anoAdmissao, Endereco endereco) {
         this.idColaborador = idColaborador;
         this.nome = nome;
@@ -31,6 +32,8 @@ public class Colaborador {
         this.formacao = formacao;
         this.anoAdmissao = anoAdmissao;
         this.endereco = endereco;
+        this.idSetor = idSetor;
+        this.idUnidade = idUnidade;
     }
 
     public int getIdColaborador() {
@@ -144,4 +147,5 @@ public class Colaborador {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
 }

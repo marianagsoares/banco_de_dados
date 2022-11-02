@@ -7,9 +7,10 @@ public class Endereco {
     private String rua;
     private String cep;
     private String numero;
-    private Colaborador idColaborador;
 
-    public Endereco(int idEndereco, char uf, String bairro, String rua, String cep, String numero, Colaborador idColaborador) {
+    private int idColaborador;
+
+    public Endereco(int idEndereco, char uf, String bairro, String rua, String cep, String numero, int idColaborador) {
         this.idEndereco = idEndereco;
         this.uf = uf;
         this.bairro = bairro;
@@ -67,11 +68,11 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public Colaborador getIdColaborador() {
+    public int getIdColaborador() {
         return idColaborador;
     }
 
-    public void setIdColaborador(Colaborador idColaborador) {
+    public void setIdColaborador(int idColaborador) {
         this.idColaborador = idColaborador;
     }
 }
