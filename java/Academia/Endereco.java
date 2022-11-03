@@ -33,6 +33,7 @@ public class Endereco {
     }
 
     public void setUf(char uf) {
+
         this.uf = uf;
     }
 

@@ -49,8 +49,12 @@ public class Colaborador {
     }
 
     public void setNome(String nome) {
+        if(nome.length() >2 && nome.length () <= 10){
 
-        this.nome = nome;
+            this.nome = nome;
+        }else{
+            System.out.println("Nome deve ter no mínimo 2 e no máximo 10 caracteres");
+        }
     }
 
     public String getSobrenome() {
@@ -58,7 +62,12 @@ public class Colaborador {
     }
 
     public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+        if( sobrenome.length() >2 && sobrenome.length() <= 10){
+
+            this.sobrenome = sobrenome;
+        }else{
+            System.out.println("Sobrenome deve ter no mínimo 2 e no máximo 10 caracteres");
+        }
     }
 
     public String getUltimoNome() {
@@ -124,7 +133,7 @@ public class Colaborador {
         if(salario <= 5000.00) {
             this.salario = salario;
         } else {
-            System.out.println("O saário excede o valor máximo");
+            System.out.println("O salário excede o valor máximo");
         }
     }
 
