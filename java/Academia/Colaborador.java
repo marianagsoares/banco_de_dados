@@ -1,11 +1,13 @@
 package Academia;
 
+import java.time.LocalDate;
+
 public class Colaborador {
     private int idColaborador;
     private String nome;
     private String sobrenome;
     private String ultimoNome;
-    private String dataNasc;
+    private LocalDate dataNasc;
     private String sexo;
     private String email;
     private String cpf;
@@ -17,7 +19,7 @@ public class Colaborador {
     private Endereco endereco;
 
 
-    public Colaborador(int idColaborador, String nome, String sobrenome, String ultimoNome, String dataNasc, String sexo, String email, String cpf, double salario, int idSetor, int idUnidade, String formacao, String anoAdmissao, Endereco endereco) {
+    public Colaborador(int idColaborador, String nome, String sobrenome, String ultimoNome, LocalDate dataNasc, String sexo, String email, String cpf, double salario, int idSetor, int idUnidade, String formacao, String anoAdmissao, Endereco endereco) {
         this.idColaborador = idColaborador;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -27,8 +29,6 @@ public class Colaborador {
         this.email = email;
         this.cpf = cpf;
         this.salario = salario;
-        this.idSetor = idSetor;
-        this.idUnidade = idUnidade;
         this.formacao = formacao;
         this.anoAdmissao = anoAdmissao;
         this.endereco = endereco;
@@ -49,6 +49,7 @@ public class Colaborador {
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
 
@@ -68,12 +69,19 @@ public class Colaborador {
         this.ultimoNome = ultimoNome;
     }
 
-    public String getDataNasc() {
+    public LocalDate getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(String dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setDataNasc(LocalDate dataNasc) {
+        LocalDate currentyDate = LocalDate.now();
+        int idade = currentyDate.getYear() - dataNasc.getYear();
+
+        if( idade >= 18 && idade < 70){
+            this.dataNasc = dataNasc;
+        }else{
+            System.out.println("É necessário ter idade superior a 18 anos e inferior que 70 anos");
+        }
     }
 
     public String getSexo() {
@@ -81,7 +89,11 @@ public class Colaborador {
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        if(sexo.contains("F") || sexo.contains("M")){
+            this.sexo = sexo;
+        }else{
+            System.out.println("Digite uma opção válida");
+        }
     }
 
     public String getEmail() {
@@ -89,7 +101,11 @@ public class Colaborador {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if(email.contains("@")){
+            this.email = email;
+        }else{
+            System.out.println("Digite um email válido");
+        }
     }
 
     public String getCpf() {
@@ -105,7 +121,11 @@ public class Colaborador {
     }
 
     public void setSalario(double salario) {
-        this.salario = salario;
+        if(salario <= 5000.00) {
+            this.salario = salario;
+        } else {
+            System.out.println("O saário excede o valor máximo");
+        }
     }
 
     public int getIdSetor() {
@@ -147,5 +167,6 @@ public class Colaborador {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
 
 }

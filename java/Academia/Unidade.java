@@ -39,7 +39,11 @@ public class Unidade {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome.length()<=20){
+            this.nome = nome;
+        }else {
+            System.out.println("O nome da unidade deve conter no máximo 20 caracteres");
+        }
     }
 
     public String getUf() {
