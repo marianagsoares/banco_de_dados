@@ -8,18 +8,18 @@ public class Colaborador {
     private String sobrenome;
     private String ultimoNome;
     private LocalDate dataNasc;
-    private String sexo;
+    private char sexo;
     private String email;
     private String cpf;
     private double salario;
     private int idSetor;
     private int idUnidade;
     private String formacao;
-    private String anoAdmissao;
+    private LocalDate anoAdmissao;
     private Endereco endereco;
 
 
-    public Colaborador(int idColaborador, String nome, String sobrenome, String ultimoNome, LocalDate dataNasc, String sexo, String email, String cpf, double salario, int idSetor, int idUnidade, String formacao, String anoAdmissao, Endereco endereco) {
+    public Colaborador(int idColaborador, String nome, String sobrenome, String ultimoNome, LocalDate dataNasc, char sexo, String email, String cpf, double salario, int idSetor, int idUnidade, String formacao, LocalDate anoAdmissao, Endereco endereco) {
         this.idColaborador = idColaborador;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -71,11 +71,17 @@ public class Colaborador {
     }
 
     public String getUltimoNome() {
+
         return ultimoNome;
     }
 
     public void setUltimoNome(String ultimoNome) {
-        this.ultimoNome = ultimoNome;
+        if( ultimoNome.length() >2 && ultimoNome.length() <= 10){
+
+            this.ultimoNome = ultimoNome;
+        }else{
+            System.out.println("O último nome deve ter no mínimo 2 e no máximo 10 caracteres");
+        }
     }
 
     public LocalDate getDataNasc() {
@@ -93,12 +99,12 @@ public class Colaborador {
         }
     }
 
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
-        if(sexo.contains("F") || sexo.contains("M")){
+    public void setSexo(char sexo) {
+        if(sexo == 'F'||  sexo == 'M'){
             this.sexo = sexo;
         }else{
             System.out.println("Digite uma opção válida");
@@ -122,7 +128,11 @@ public class Colaborador {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if( cpf.length() == 14){
+            this.cpf = cpf;
+        }else{
+            System.out.println("O último nome deve ter no mínimo 2 e no máximo 10 caracteres");
+        }
     }
 
     public double getSalario() {
@@ -161,12 +171,15 @@ public class Colaborador {
         this.formacao = formacao;
     }
 
-    public String getAnoAdmissao() {
+    public LocalDate getAnoAdmissao() {
         return anoAdmissao;
     }
 
-    public void setAnoAdmissao(String anoAdmissao) {
-        this.anoAdmissao = anoAdmissao;
+    public void setAnoAdmissao(LocalDate anoAdmissao) {
+        LocalDate dataAtual = LocalDate.now();
+        if(anoAdmissao.getYear() <= dataAtual.getYear()){
+            this.anoAdmissao = anoAdmissao;
+        }
     }
 
     public Endereco getEndereco() {

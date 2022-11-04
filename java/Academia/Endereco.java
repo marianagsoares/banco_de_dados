@@ -2,7 +2,7 @@ package Academia;
 
 public class Endereco {
     private  int idEndereco;
-    private char uf;
+    private String uf;
     private String bairro;
     private String rua;
     private String cep;
@@ -10,7 +10,7 @@ public class Endereco {
 
     private int idColaborador;
 
-    public Endereco(int idEndereco, char uf, String bairro, String rua, String cep, String numero, int idColaborador) {
+    public Endereco(int idEndereco, String uf, String bairro, String rua, String cep, String numero, int idColaborador) {
         this.idEndereco = idEndereco;
         this.uf = uf;
         this.bairro = bairro;
@@ -28,13 +28,14 @@ public class Endereco {
         this.idEndereco = idEndereco;
     }
 
-    public char getUf() {
+    public String getUf() {
         return uf;
     }
 
-    public void setUf(char uf) {
-
-        this.uf = uf;
+    public void setUf(String uf) {
+        if(uf.length() == 2){
+            this.uf = uf;
+        }
     }
 
     public String getBairro() {
