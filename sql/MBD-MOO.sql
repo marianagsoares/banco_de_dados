@@ -142,14 +142,24 @@ ADD COLUMN formacao VARCHAR(30) DEFAULT ("2 grau completo");
 -- DROP COLUMN anoAdmissao;
 
 ALTER TABLE colaborador
-ADD COLUMN anoAdmissao CHAR(4);
+ADD COLUMN anoAdmissao DATE;
 
 ALTER TABLE endereco
 ADD COLUMN complemento VARCHAR(30) DEFAULT ("Sem complemento");
 
 INSERT INTO colaborador (idColaborador, nome, ultimoNome, dataNasc, sexo, email, cpf, salario, idSetor, idUnidade, anoAdmissao) 
 VALUES (NULL, "Fábio", "Novisk", "1995-08-02", "M", "fabio@hotmail.com", "155.884.997.81", 2500.0, 3, 2, "2020");
--- ------------------------------------------------QUERYS --------------------------------------------------------------------
+
+SELECT * FROM colaborador WHERE salario IN (1000);
+ UPDATE colaborador SET salario = 1200.0 WHERE idColaborador = 3;
+ -- FIZ EM SELECT DISTINTO PARA FICAR LEGÍVEL QUE ALTEREI O SALARIO DE 1000 PARA 1200 DO COLOBORADOR COM ID 3 
+ 
+SELECT * FROM colaborador WHERE salario IN (1000);
+ UPDATE colaborador SET salario = 1200.0 WHERE idColaborador = 7;
+  -- FIZ EM SELECT DISTINTO PARA FICAR LEGÍVEL QUE ALTEREI O SALARIO DE 1000 PARA 1200 DO COLOBORADOR COM ID 7
+  
+  DELETE FROM  colaborador WHERE idColaborador = 5;
+-- ------------------------------------------------QUERIES SELECT, INNER JOIN --------------------------------------------------------------------
 
 SELECT * FROM colaborador;
 SELECT * FROM endereco;
@@ -191,9 +201,24 @@ WHERE setor.nome IN ("instrutores");
  WHERE sobrenome IS NULL ORDER BY (colaborador.nome) DESC;
  -- MOSTRE id, nome, sobrenome, ultimo nome e formacao do colaborador, nome do setor e filtre pelo sobrenome cujo valor é nulo e ordene pelo nome do colaborador de forma descendente.
  
- SELECT idColaborador, colaborador.nome, unidade.idUnidade, unidade.nome, setor.idSetor, setor.nome, anoAdmissao FROM colaborador 
+ SELECT idColaborador, colaborador.nome AS nomeColaborador, ultimoNome, salario, unidade.nome AS nomeUnidade, setor.nome AS nomeSetor, anoAdmissao FROM colaborador 
  INNER JOIN unidade ON unidade.idUnidade = colaborador.idUnidade
- INNER JOIN setor ON setor.idSetor = colaborador.idSetor WHERE anoAdmissao < 2020;
+ INNER JOIN setor ON setor.idSetor = colaborador.idSetor WHERE anoAdmissao < YEAR(current_date()) ORDER BY salario;
+ -- MOSTRE id, nome, ultimo nome, salario e ano de admissao do colaborador, nome da unidade, nome do setor e filtre pelo ano de admissao inferior ao ano corrente, ordenando pelo salario
+  
+ SELECT SUM(salario) FROM colaborador; 
+ -- MOSTRE A SOMA DOS SALARIOS DE TODOS OS COLABORADORES
+ 
+ SELECT COUNT(*) FROM colaborador WHERE sobrenome IS NULL;
+ -- MOSTRE quantas linhas existem dentro de colaborador nos quais o sobrenome é nulo
+ 
+ SELECT COUNT(*) FROM colaborador WHERE idSetor = 2;
+ -- MOSTRE quantos colaboradores  trabalham no setor 2 (instrutores)
+ 
+ 
+ SELECT COUNT(*) FROM colaborador;
+ -- MOSTRE quantas linhas existem dentro da tabela colaborador;
+ 
  
  
  
